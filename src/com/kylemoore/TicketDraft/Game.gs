@@ -4,8 +4,10 @@ uses java.util.Date
 uses apple.awt.ClientPropertyApplicator.Property
 uses java.lang.Enum
 uses java.util.Calendar
-uses java.text.DateFormat
+uses java.text.SimpleDateFormat
 uses javax.swing.text.DateFormatter
+uses java.util.TimeZone
+uses javax.print.attribute.standard.DateTimeAtCompleted
 
 class Game {
 
@@ -14,22 +16,23 @@ class Game {
   private var _opponent : String as Opponent
   private var _broadcastNetwork : TVStation as BroadcastNetwork
 
-  property set Date(dt : Date) {
-    _gametime.setDate(2) //TODO what's this do?
-  }
-
-  property set Time(time : Calendar) {
-    _gametime.setTime(12345) //TODO what's this do?
-  }
+  public static final var DateFormat : SimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm zzz")
 
   static function init(gamedatastring : String) : Game {
     var gamedata : String[] = gamedatastring.split(",")
     var gm = new Game()
     gm.UniqueID = gamedata[0]
-    //gm.Date = DateFormat.(gamedata[1])
+    gm.setGameTime(gamedata[1], gamedata[2])
     gm.Opponent = gamedata[3]
     gm.BroadcastNetwork = TVStation.valueOf(gamedata[4])
     return gm
+  }
+
+  //---------------------- private methods -------------------------//
+
+  private function setGameTime(date : String, time : String) {
+    var datetime = "${date} ${time} CDT"
+    _gametime = DateFormat.parse(datetime)
   }
 
 }

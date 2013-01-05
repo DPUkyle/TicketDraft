@@ -1,5 +1,8 @@
+//classpath "../lib,../resources,../test"
+
 uses gw.lang.cli.CommandLineAccess
 uses com.kylemoore.TicketDraft.PrefReader
+uses com.kylemoore.TicketDraft.Game
 
 /**
  * TicketDraft: Performs an offline draft for season ticket distribution
@@ -17,6 +20,7 @@ CommandLineAccess.initialize(PrefReader)
 
 PrefReader.loadMasterList()
 PrefReader.AllGames.eachWithIndex( \ game, index -> {
-  print("${index}\tThe Cubs play ${game.Opponent} on ${game.UniqueID}, shown on ${game.BroadcastNetwork}")
+  print("${index}\tThe Cubs play ${game.Opponent} on ${Game.DateFormat.format(game.GameTime)}, shown on ${game.BroadcastNetwork} (channel ${game.BroadcastNetwork.ChannelNumber})")
 })
+
 print("Program complete")
