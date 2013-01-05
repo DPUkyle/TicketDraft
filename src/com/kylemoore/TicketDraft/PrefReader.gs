@@ -15,7 +15,7 @@ class PrefReader {
   static var _allGames : Set<Game> as readonly AllGames
 
   static function loadMasterList() {
-    _masterList = new File("resources/2013.csv")
+    _masterList = new File("../resources/2013.csv")
     print(MasterList.AbsolutePath)
     var ml = MasterList.read()
     //print(ml)
