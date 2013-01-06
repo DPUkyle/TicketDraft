@@ -4,6 +4,9 @@ uses gw.lang.cli.Required
 uses java.io.File
 uses java.util.Set
 uses java.util.HashSet
+uses org.apache.poi.hssf.extractor.ExcelExtractor
+uses org.apache.poi.poifs.filesystem.POIFSFileSystem
+uses java.io.FileInputStream
 
 /**
  * Arguments for TicketReader
@@ -28,6 +31,14 @@ class PrefReader {
       }
       ct++
     })
+  }
+
+  static function loadRankings(filename : String) {
+    var rankings = new File(filename)
+    var myInputStream = new FileInputStream(rankings)
+    var myFileSystem : POIFSFileSystem = new POIFSFileSystem(myInputStream);
+    var ee = new ExcelExtractor(myFileSystem)
+    print(ee.Text)
   }
 
 }

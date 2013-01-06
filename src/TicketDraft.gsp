@@ -23,4 +23,6 @@ PrefReader.AllGames.eachWithIndex( \ game, index -> {
   print("${index}\tThe Cubs play ${game.Opponent} on ${Game.DateFormat.format(game.GameTime)}, shown on ${game.BroadcastNetwork} (channel ${game.BroadcastNetwork.ChannelNumber})")
 })
 
+PrefReader.loadRankings("../resources/Ranking Template.xls")
+
 print("Program complete")
