@@ -2,7 +2,7 @@ uses junit.framework.TestCase
 uses com.kylemoore.TicketDraft.Game
 uses org.fest.assertions.Assertions
 uses java.util.Date
-uses com.kylemoore.TicketDraft.TVStation
+uses com.kylemoore.TicketDraft.TVStationEnum
 uses java.text.SimpleDateFormat
 
 /**
@@ -22,7 +22,7 @@ class GameTest extends TestCase {
     Assertions.assertThat(testGame.UniqueID).isEqualTo("20130408")
     Assertions.assertThat(testGame.GameTime).isEqualTo(new SimpleDateFormat("yyyy-MM-dd hh:mm a zzz").parse("2013-04-08 1:20 PM CDT"))
     Assertions.assertThat(testGame.Opponent).isEqualTo("MIL")
-    Assertions.assertThat(testGame.BroadcastNetwork).isEqualTo(TVStation.WGN)
+    Assertions.assertThat(testGame.BroadcastNetwork).isEqualTo(TVStationEnum.WGN)
     Assertions.assertThat(testGame.BroadcastNetwork.ChannelNumber).isEqualTo("9")
   }
 }
