@@ -1,5 +1,5 @@
 .idea/workspace.xml
-*.iml
 lib/
+log/
 out/
 target/
