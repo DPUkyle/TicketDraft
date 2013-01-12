@@ -15,9 +15,9 @@
         <!--</Asynch>-->
     </appenders>
     <loggers>
-        <root level="info">
+        <root level="debug">
             <appender-ref ref="Console"/>
-            <appender-ref ref="TicketDraft"/>
+            <appender-ref ref="TicketDraft" level="info"/>
         </root>
         <!--<logger name="com.kylemoore.TicketDraft.PrefReader" level="info" additivity="true">-->
             <!--<appender-ref ref="TicketDraft"/>-->

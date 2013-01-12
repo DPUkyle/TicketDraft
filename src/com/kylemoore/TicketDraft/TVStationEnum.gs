@@ -1,6 +1,6 @@
 package com.kylemoore.TicketDraft
 
-final enum TVStation {
+final enum TVStationEnum {
   CSN,
   CSNPLUS,
   ESPN,

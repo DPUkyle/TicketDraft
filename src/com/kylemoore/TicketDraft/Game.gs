@@ -14,7 +14,7 @@ class Game {
   private var _uid : String as UniqueID
   private var _gametime : Date as readonly GameTime
   private var _opponent : String as Opponent
-  private var _broadcastNetwork : TVStation as BroadcastNetwork
+  private var _broadcastNetwork : TVStationEnum as BroadcastNetwork
 
   public static final var DateFormat : SimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm zzz")
 
@@ -24,7 +24,7 @@ class Game {
     gm.UniqueID = gamedata[0]
     gm.setGameTime(gamedata[1], gamedata[2])
     gm.Opponent = gamedata[3]
-    gm.BroadcastNetwork = TVStation.valueOf(gamedata[4])
+    gm.BroadcastNetwork = TVStationEnum.valueOf(gamedata[4])
     return gm
   }
 
