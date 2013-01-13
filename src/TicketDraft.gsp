@@ -19,17 +19,9 @@ uses sun.rmi.runtime.Log
  * </ul>
  **/
 
-//Read list of games
-//print("Begin program execution")
 //CommandLineAccess.initialize(PrefReader)
 var pr = PrefReader.init()
-//PrefReader.loadMasterList()
-//PrefReader.AllGames.eachWithIndex( \ game, index -> {
-//  print("${index}\tThe Cubs play ${game.Opponent} on ${Game.DateFormat.format(game.GameTime)}, shown on ${game.BroadcastNetwork} (channel ${game.BroadcastNetwork.ChannelNumber})")
-//})
-
-pr.loadRankings("../resources/Ranking Template.xls") // TODO refactor to return hashset or ordered list? Stack?
-var allGames : Set<Game> = new HashSet<Game>() //TODO initialize hashset of uniqueIDs
-//PrefReader.loadRankings("../resources/User Number Two.xls")
-// verify subsequent users sets of IDs  match the hashset of UniqueIDs
-//print("Program complete")
+pr.importRankings()
+var results = pr.doDraft()
+results.each( \ elt -> print(elt))
+//TODO - make a pretty function to print the results to file
