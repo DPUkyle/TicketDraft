@@ -107,12 +107,13 @@ class PrefReader {
 
         while(userPicks.HasElements and !madeSelection) {
           selection = userPicks.pop()
+          user.incrementDraftCount()
           if(pickedGames.contains(selection)) {
-            results.add("Round ${i}: ${user.UserName} wanted ${selection} but it wasn't available.")
+            results.add("Round ${i}: ${user.UserName} wanted ${selection} (his #${user.DraftCount} choice) but it wasn't available.")
           } else {
            pickedGames.add(selection)
            madeSelection = true
-           results.add("Round ${i}: ${user.UserName} chooses ${selection}")
+           results.add("Round ${i}: ${user.UserName} chooses ${selection}, his #${user.DraftCount} choice")
           }
         } //end while
       }) //end turn
