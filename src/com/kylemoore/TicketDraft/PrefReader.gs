@@ -94,7 +94,7 @@ class PrefReader {
     //following draft-order, pop for that user until an available game is found
       // available will be a property of allGames?
     //do teh draft
-    var pickedGames : Set<String> = new HashSet<String>()
+    var pickedGames : Set<String> = new HashSet<String>() //TODO convert to ordered list of DraftResult objects
     var results : List<String> = new ArrayList<String>()
     var userPicks : Stack<String>
     var selection : String
