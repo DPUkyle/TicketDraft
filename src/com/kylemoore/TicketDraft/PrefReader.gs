@@ -139,7 +139,7 @@ class PrefReader {
 
   private function loadDraftPicksForUser(user : User) : Stack<String> {
     logger.info("Loading draft picks for ${user.UserName}")
-    var myxls = new FileInputStream("../resources/Ranking Template.xls") //(user.DataFileName)
+    var myxls = new FileInputStream(user.DataFileName) //"../resources/Ranking Template.xls")
     //any reason for a try/catch ?  We want the program to terminate anyway if there's a FNF, so maybe not
     var wb : HSSFWorkbook = new HSSFWorkbook(myxls)
     var sheet : HSSFSheet = wb.getSheetAt(0)
@@ -166,6 +166,8 @@ class PrefReader {
     var rankings = new HashMap<Integer, String>()
     for(i in 1..|rows.Count) {
       var theRow = rows.get(i)
+      //logger.debug(theRow.getCell(rankIndex).NumericCellValue as int)
+      //logger.debug(theRow.getCell(uniqueIDIndex).isString)
       rankings.put(theRow.getCell(rankIndex).NumericCellValue as int,
                    theRow.getCell(uniqueIDIndex).StringCellValue)
       //print(rows.get(i).getCell(rankIndex).NumericCellValue as int)
