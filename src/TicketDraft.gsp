@@ -23,5 +23,5 @@ uses sun.rmi.runtime.Log
 var pr = PrefReader.init()
 pr.importRankings()
 var results = pr.doDraft()
-results.each( \ elt -> print(elt))
+//results.each( \ elt -> print(elt))
 //TODO - make a pretty function to print the results to file
